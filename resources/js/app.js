@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
@@ -9,58 +9,72 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import EditExpense from "./components/edit-expense.component";
-import ExpensesList from "./components/expenses-listing.component";
-import CreateExpense from "./components/create-expense.component";
+import EditContact from "./components/edit-contact.component";
+import ContactsList from "./components/contact-listing.component";
+import CreateContact from "./components/create-contact.component";
+import AdminContact from "./components/admin-contact-client.component";
 
 function App() {
-  return (<Router>
-    <div className="App">
-      <header className="App-header">
-        <Navbar>
-          <Container>
+    return (
+        <Router>
+            <div className="App">
+                <header className="App-header">
+                    <Navbar>
+                        <Container>
+                            <Navbar.Brand>
+                                <Link to={"/"} className="nav-link">
+                                    Contact manager
+                                </Link>
+                            </Navbar.Brand>
 
-            <Navbar.Brand>
-              <Link to={"/create-expense"} className="nav-link">
-              Expense manager
-              </Link>
-            </Navbar.Brand>
+                            <Nav className="justify-content-end">
+                                <Nav>
+                                    <Link
+                                        to={"/contacts-listing"}
+                                        className="nav-link"
+                                    >
+                                        Contacts List
+                                    </Link>
+                                </Nav>
+                            </Nav>
+                        </Container>
+                    </Navbar>
+                </header>
 
-            <Nav className="justify-content-end">
-              <Nav>
-                <Link to={"/create-expense"} className="nav-link">
-                  Create Expense
-                </Link>
-                <Link to={"/expenses-listing"} className="nav-link">
-                  Expenses List
-                </Link>
-              </Nav>
-            </Nav>
-
-          </Container>
-        </Navbar>
-      </header>
-
-      <Container>
-        <Row>
-          <Col md={12}>
-            <div className="wrapper">
-              <Switch>
-                <Route exact path='/' component={CreateExpense} />
-                <Route path="/create-expense" component={CreateExpense} />
-                <Route path="/edit-expense/:id" component={EditExpense} />
-                <Route path="/expenses-listing" component={ExpensesList} />
-              </Switch>
+                <Container>
+                    <Row>
+                        <Col md={12}>
+                            <div className="wrapper">
+                                <Switch>
+                                    <Route
+                                        exact
+                                        path="/"
+                                        component={CreateContact}
+                                    />
+                                    <Route
+                                        path="/edit-contact/:id"
+                                        component={EditContact}
+                                    />
+                                    <Route
+                                        path="/contacts-listing"
+                                        component={ContactsList}
+                                    />
+                                    <Route
+                                        path="/admin-contact/:id"
+                                        component={AdminContact}
+                                    />
+                                </Switch>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  </Router>);
+        </Router>
+    );
 }
 
 export default App;
 
-if (document.getElementById('app')) {
-    ReactDOM.render(<App />, document.getElementById('app'));
+if (document.getElementById("app")) {
+    ReactDOM.render(<App />, document.getElementById("app"));
 }

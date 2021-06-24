@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expense extends Model
+class Contact extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'amount'];
+    protected $table = 'contacts';
 
+    protected $fillable = ['name', 'email'];
 }

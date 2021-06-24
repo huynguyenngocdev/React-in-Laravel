@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/{any}/{id?}', function () {
+    return view('welcome');
+});
+
+
+// Route::get('export', [MyController::class, 'export'])->name('export');
+// Route::post('import', [MyController::class, 'import'])->name('import');

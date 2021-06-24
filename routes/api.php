@@ -18,12 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/expenses', 'ExpenseController@index')->name('expenses.all');
+Route::get('/contact', 'ContactController@index')->name('contact.all');
 
-Route::post('/expenses', 'ExpenseController@store')->name('expenses.store');
+Route::post('/contact', 'ContactController@store')->name('contact.store'); /*<a href = "{{route('contact.store')}}">Link</a>*/
 
-Route::get('/expenses/{expense}', 'ExpenseController@show')->name('expenses.show');
+Route::get('/contact/{id}', 'ContactController@show')->name('contact.show');
 
-Route::put('/expenses/{expense}', 'ExpenseController@update')->name('expenses.update');
+Route::put('/contact/{id}', 'ContactController@update')->name('contact.update');
 
-Route::delete('/expenses/{expense}', 'ExpenseController@destory')->name('expenses.destroy');
+Route::delete('/contact/{id}', 'ContactController@destroy')->name('contact.destroy');
+
+Route::post('/admin-contact/{id}', 'ContactController@adminMailToClient')->name('contact.admin');
+
+Route::get('/export-contact', 'ContactController@exportContact')->name('contact.export');
