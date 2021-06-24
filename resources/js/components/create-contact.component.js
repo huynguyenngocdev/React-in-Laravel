@@ -50,7 +50,7 @@ export default class CreateContact extends Component {
             Swal.fire("Oh no!", "Contact Added Failed", "error");
         } else {
             axios
-                .post(`${this.state.url_api}/api/contact/`, contact)
+                .post(`${this.state.url_api}/api/contact`, contact)
                 .then(() =>
                     Swal.fire(
                         "Good job!",

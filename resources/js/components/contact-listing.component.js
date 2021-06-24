@@ -16,8 +16,9 @@ export default class ContactList extends Component {
     }
 
     componentDidMount() {
+        console.log(this.state.url_api);
         axios
-            .get(`${this.state.url_api}/api/contact/`)
+            .get(`${this.state.url_api}/api/contact`)
             .then(res => {
                 this.setState({
                     contact: res.data

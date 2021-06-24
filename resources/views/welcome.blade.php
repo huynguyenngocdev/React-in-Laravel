@@ -403,6 +403,7 @@
   <body>
     <div id="app"></div>
     <script src="https://react-laravel-app.herokuapp.com/js/app.js"></script>
+    <!-- <script src="{{asset('js/app.js')}}"></script> -->
   </body>
 
 </html>
